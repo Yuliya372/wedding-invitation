@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Свадебный вечер Артем & Юлия</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: 'Segoe UI', sans-serif;
+            background-color: #f6f5f0;
+            color: #2f3e2f;
+            line-height: 1.6;
+        }
+        header {
+            background: url('https://images.unsplash.com/photo-1506748686214-e9df14d4d9d0?fit=crop&w=1200&q=80') no-repeat center/cover;
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            color: white;
+        }
+        header h1 {
+            font-size: 3rem;
+            margin: 0;
+            animation: fadeIn 2s ease-in-out;
+        }
+        header p {
+            font-size: 1.2rem;
+            animation: fadeIn 3s ease-in-out;
+        }
+        section {
+            max-width: 800px;
+            margin: 50px auto;
+            padding: 20px;
+            background: rgba(255,255,255,0.9);
+            border-radius: 12px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+        }
+        h2 {
+            text-align: center;
+            color: #476a4d;
+        }
+        ul {
+            list-style: none;
+            padding: 0;
+        }
+        ul li {
+            padding: 8px 0;
+            border-bottom: 1px solid #d6d6d6;
+        }
+        form {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+        input, select, button {
+            padding: 10px;
+            font-size: 1rem;
+            border: 1px solid #ccc;
+            border-radius: 8px;
+        }
+        button {
+            background-color: #7ca982;
+            color: white;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+        button:hover {
+            background-color: #5c8460;
+        }
+        @keyframes fadeIn {
+            from {opacity: 0; transform: translateY(20px);}
+            to {opacity: 1; transform: translateY(0);}
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <h1>Артем & Юлия</h1>
+    <p>Мы официально стали семьей 9 августа 2025 г.<br> А день 20 сентября 2025 г. хотим провести среди самых близких и дорогих людей </p>
+</header>
+
+<section>
+    <h2>О событии</h2>
+    <p>Приглашаем тебя на наш свадебный вечер </p>
+    <p><strong>📅 Дата:</strong> 20 сентября 2025 г.<br>
+       <strong>🕔 Время:</strong> 17:00 – 23:00<br>
+       <strong>📍 Место:</strong> кафе «Иван Ёлкин», г. Брест, ул. Кирпичная, 2А</p>
+</section>
+
+<section>
+    <h2>Программа вечера</h2>
+    <ul>
+        <li>17:00 — Сбор гостей</li>
+        <li>18:00 — Ужин</li>
+        <li>19:30 — Танцы и тёплые слова</li>
+        <li>23:00 — Финал праздника</li>
+    </ul>
+</section>
+
+<section>
+    <h2>RSVP</h2>
+    <form>
+        <input type="text" placeholder="Ваше имя" required>
+        <select required>
+            <option value="">Вы придёте?</option>
+            <option>Да</option>
+            <option>Нет</option>
+        </select>
+        <input type="number" placeholder="Количество человек" min="1">
+        <button type="submit">Отправить</button>
+    </form>
+</section>
+
+<section>
+    <h2>Контакты</h2>
+    <p>📞 +375 29 820-22-83<br>
+       💬 Telegram: @Julivlia </p>
+</section>
+
+</body>
+</html>
