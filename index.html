@@ -5,16 +5,16 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Свадьба Артем & Юлия</title>
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Pacifico&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Parisienne&display=swap');
         body {
             margin: 0;
-            font-family: 'Pacifico', cursive;
-            background-color: #fdfaf6;
+            font-family: 'Parisienne', cursive;
+            background: linear-gradient(135deg, #e8f5e9, #e3f2fd, #fce4ec);
             color: #3b403b;
             line-height: 1.6;
         }
         header {
-            background-color: #e9f0ec;
+            background-color: rgba(255,255,255,0.8);
             padding: 80px 20px;
             text-align: center;
             color: #2f3e2f;
@@ -24,7 +24,7 @@
             margin-bottom: 20px;
         }
         header p {
-            font-size: 1.2rem;
+            font-size: 1.4rem;
             max-width: 700px;
             margin: 0 auto;
         }
@@ -32,7 +32,7 @@
             max-width: 800px;
             margin: 40px auto;
             padding: 20px;
-            background: rgba(255,255,255,0.97);
+            background: rgba(255,255,255,0.85);
             border-radius: 12px;
             box-shadow: 0 4px 12px rgba(0,0,0,0.05);
         }
@@ -51,7 +51,7 @@
             font-size: 1rem;
             border: 1px solid #ccc;
             border-radius: 8px;
-            font-family: 'Pacifico', cursive;
+            font-family: 'Parisienne', cursive;
         }
         button {
             background-color: #7ca982;
@@ -62,11 +62,19 @@
         button:hover {
             background-color: #5c8460;
         }
-        #countdown {
-            font-size: 1.5rem;
+        .contacts {
             text-align: center;
+        }
+        .contacts-grid {
+            display: flex;
+            justify-content: center;
+            gap: 40px;
             margin-top: 20px;
-            color: #2f3e2f;
+        }
+        .contact-person {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
         }
     </style>
 </head>
@@ -76,22 +84,22 @@
     <h1>Артем & Юлия</h1>
     <p>Мы официально стали семьей 9 августа 2025 г.<br>
     А день 20 сентября 2025 г. хотим провести среди самых близких и дорогих людей.<br>
-    Приглашаем тебя на наш свадебный вечер.</p>
-    <div id="countdown"></div>
+    Этот вечер — отражение нашей любви, тепла и мечты, и мы счастливы разделить его с вами.</p>
+    <p id="countdown"></p>
 </header>
 
 <section>
     <h2>О событии</h2>
-    <p>Этот день для нас — не просто дата, а начало новой главы в нашей жизни. Мы мечтаем разделить его с теми, кто был рядом в радости и в трудные моменты. Для нас большая честь — видеть вас среди гостей, чтобы вместе создать воспоминания, которые останутся в сердце навсегда.</p>
+    <p>Все традиции будут соблюдены в этот день. Вас ждут конкурсы, танцы и уютная атмосфера.</p>
     <p><strong>📅 Дата:</strong> 20 сентября 2025 г.<br>
        <strong>🕔 Время:</strong> 17:00 – 23:00<br>
-       <strong>📍 Место:</strong> кафе «Иван Ёлкин», г. Брест, ул. Кирпичная, 2А</p>
+       <strong>📍 Место:</strong> кафе «Уютный вечер», г. Брест, ул. Кирпичная, 2А</p>
     <p>Дресс-кода нет — главное, чтобы вам было комфортно.</p>
 </section>
 
 <section>
     <h2>Будем рады видеть вас</h2>
-    <p>Пожалуйста, подтвердите ваше присутствие на нашем свадебном вечере:</p>
+    <p>Пожалуйста, подтвердите ваше присутствие на нашем свадебном вечере.</p>
     <form>
         <input type="text" placeholder="Имя" required>
         <input type="text" placeholder="Фамилия" required>
@@ -100,40 +108,37 @@
             <option>Да, с удовольствием</option>
             <option>К сожалению, нет</option>
         </select>
-        <textarea placeholder="Ваши предпочтения (еда, напитки, пожелания)" rows="3"></textarea>
+        <textarea placeholder="Ваши предпочтения (еда, напитки, пожелания)"></textarea>
         <button type="submit">Отправить</button>
     </form>
 </section>
 
-<section>
-    <h2>Контакты</h2>
-    <p>📞 Юлия: +375298202283<br>
-       📞 Артем: +375445222123</p>
+<section class="contacts">
+    <h2>По всем вопросам, вы можете связаться с нами</h2>
+    <div class="contacts-grid">
+        <div class="contact-person">
+            <strong>Юлия</strong>
+            <span>+375298202283</span>
+        </div>
+        <div class="contact-person">
+            <strong>Артем</strong>
+            <span>+375445222123</span>
+        </div>
+    </div>
 </section>
 
 <script>
-    const weddingDate = new Date('2025-09-20T17:00:00+03:00').getTime();
-    const countdownElement = document.getElementById('countdown');
-
-    function updateCountdown() {
+    const weddingDate = new Date('September 20, 2025 17:00:00').getTime();
+    const countdownEl = document.getElementById('countdown');
+    setInterval(() => {
         const now = new Date().getTime();
         const distance = weddingDate - now;
-
-        if (distance <= 0) {
-            countdownElement.innerHTML = "Сегодня наш день! ✨";
-            clearInterval(interval);
-            return;
-        }
-
         const days = Math.floor(distance / (1000 * 60 * 60 * 24));
         const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
         const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
         const seconds = Math.floor((distance % (1000 * 60)) / 1000);
-
-        countdownElement.innerHTML = `До свадьбы осталось: ${days}д ${hours}ч ${minutes}м ${seconds}с`;
-    }
-
-    const interval = setInterval(updateCountdown, 1000);
+        countdownEl.innerHTML = `До свадьбы осталось: ${days}д ${hours}ч ${minutes}м ${seconds}с`;
+    }, 1000);
 </script>
 
 </body>
